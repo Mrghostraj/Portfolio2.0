@@ -379,7 +379,17 @@
         .skill-top { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px; font-weight: 500; color: var(--text-muted); }
         .skill-top span:last-child { color: var(--copper-primary); }
         .skill-bar { height: 6px; background: rgba(0,0,0,0.4); border-radius: 10px; overflow: hidden; }
-        .skill-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--copper-primary), var(--rose-accent)); }
+        .skill-fill { 
+            height: 100%; 
+            border-radius: 10px; 
+            background: linear-gradient(90deg, var(--copper-primary), var(--rose-accent)); 
+            width: 0; /* Starts at 0% */
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1); /* Smooth filling animation */
+            transition-delay: 0.2s; /* Waits a split second after the card reveals */
+        }
+        .skill-card.active .skill-fill {
+            width: var(--target-width);
+        }
 
         /* =========================================================
            DSA
@@ -563,35 +573,35 @@
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card reveal">
-                    <div class="project-number">01 / AI RESEARCH</div>
+                    <div class="project-number">01 / AI Assistant</div>
+                    <h3>Aira — Local AI Voice Assistant </h3>
+                    <p>Built with Python, open-source AI models, and a modular architecture. Build locally. Think intelligently. Act safely.</p>
+                    <div class="tech-stack">
+                        <span class="tech">Python</span><span class="tech">Ollama</span><span class="tech">TTS/STT</span>
+                    </div>
+                    <a href="https://github.com/Mrghostraj/AI-Assistant" class="project-link">↗</a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <div class="project-number">02 / AI RESEARCH</div>
                     <h3>Android Malware Detection</h3>
                     <p>Hybrid deep learning framework for Android malware classification using VGG16 and ResNet50 feature fusion.</p>
                     <div class="tech-stack">
                         <span class="tech">Python</span><span class="tech">TensorFlow</span><span class="tech">ResNet50</span>
                     </div>
-                    <a href="#" class="project-link">↗</a>
+                    <a href="https://github.com/Mrghostraj/Android-Malware-Detection" class="project-link">↗</a>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 3 -->
                 <div class="project-card reveal">
-                    <div class="project-number">02 / COMPUTER VISION</div>
+                    <div class="project-number">03 / COMPUTER VISION</div>
                     <h3>OMR Evaluation System</h3>
                     <p>Automated OMR evaluation system using YOLO object detection and computer vision techniques for rapid grading.</p>
                     <div class="tech-stack">
                         <span class="tech">Python</span><span class="tech">YOLO</span><span class="tech">OpenCV</span>
                     </div>
-                    <a href="#" class="project-link">↗</a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card reveal">
-                    <div class="project-number">03 / MACHINE LEARNING</div>
-                    <h3>Stock Price Prediction</h3>
-                    <p>Machine learning pipeline combining raw market data and NLP sentiment analysis for accurate stock price prediction.</p>
-                    <div class="tech-stack">
-                        <span class="tech">Python</span><span class="tech">Scikit-learn</span><span class="tech">VADER</span>
-                    </div>
-                    <a href="#" class="project-link">↗</a>
+                    <a href="https://github.com/Mrghostraj/OMR-Evaluation" class="project-link">↗</a>
                 </div>
 
                 <!-- Project 4 -->
@@ -602,7 +612,7 @@
                     <div class="tech-stack">
                         <span class="tech">Python</span><span class="tech">LangChain</span><span class="tech">Ollama</span>
                     </div>
-                    <a href="#" class="project-link">↗</a>
+                    <a href="https://github.com/Mrghostraj/Gemma-Chatbot" class="project-link">↗</a>
                 </div>
 
                 <!-- Project 5 -->
@@ -611,9 +621,9 @@
                     <h3>Customer Churn Analysis</h3>
                     <p>Exploratory data analysis and machine learning workflow for identifying patterns in customer retention and churn.</p>
                     <div class="tech-stack">
-                        <span class="tech">Pandas</span><span class="tech">SQL</span><span class="tech">Random Forest</span>
+                        <span class="tech">Python</span><span class="tech">SQL</span><span class="tech">PowerBI</span>
                     </div>
-                    <a href="#" class="project-link">↗</a>
+                    <a href="https://github.com/Mrghostraj/Customer-Churn-Analysis" class="project-link">↗</a>
                 </div>
 
                 <!-- Project 6 -->
@@ -624,7 +634,7 @@
                     <div class="tech-stack">
                         <span class="tech">Arrays</span><span class="tech">Trees/Graphs</span><span class="tech">Dynamic Prog.</span>
                     </div>
-                    <a href="#" class="project-link">↗</a>
+                    <a href="https://github.com/Mrghostraj/LeetCode-Practice" class="project-link">↗</a>
                 </div>
             </div>
         </div>
@@ -671,44 +681,30 @@
             <div class="skills-grid">
                 <div class="skill-card reveal">
                     <h3>Programming & Data</h3>
-                    <div class="skill"><div class="skill-top"><span>Python</span><span>Core</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>SQL</span><span>Core</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>Pandas / NumPy</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Python</span><span>Core</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:95%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>SQL</span><span>Core</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:88%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Pandas / NumPy</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:90%"></div></div></div>
                 </div>
 
                 <div class="skill-card reveal">
                     <h3>AI & Machine Learning</h3>
-                    <div class="skill"><div class="skill-top"><span>TensorFlow / Keras</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>Scikit-Learn</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>Computer Vision (OpenCV)</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>TensorFlow / Keras</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:90%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Scikit-Learn</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:92%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Computer Vision (OpenCV)</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:88%"></div></div></div>
                 </div>
 
                 <div class="skill-card reveal">
                     <h3>GenAI & Development</h3>
-                    <div class="skill"><div class="skill-top"><span>LangChain</span><span>Working</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>LLM Applications</span><span>Working</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>Docker / Git</span><span>Working</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>LangChain</span><span>Working</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:80%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>LLM Applications</span><span>Working</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:78%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Docker / Git</span><span>Working</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:75%"></div></div></div>
                 </div>
 
                 <div class="skill-card reveal">
                     <h3>Problem Solving</h3>
-                    <div class="skill"><div class="skill-top"><span>Arrays & Strings</span><span>Strong</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>Trees & Graphs</span><span>Developing</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-                    <div class="skill"><div class="skill-top"><span>Algorithms</span><span>Strong</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="dsa-section">
-        <div class="container">
-            <div class="dsa-card reveal">
-                <div class="dsa-symbol">&lt;/&gt;</div>
-                <h3>Beyond Models. <span class="gradient-text">I solve problems.</span></h3>
-                <p>Alongside building AI architectures, I rigorously practice Data Structures and Algorithms to construct efficient, scalable code and strengthen analytical fundamentals.</p>
-                <div class="dsa-tags">
-                    <span class="tag">Arrays</span><span class="tag">Hashing</span><span class="tag">Sliding Window</span>
-                    <span class="tag">Trees</span><span class="tag">Graphs</span><span class="tag">Dynamic Programming</span>
+                    <div class="skill"><div class="skill-top"><span>Arrays & Strings</span><span>Strong</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:90%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Trees & Graphs</span><span>Developing</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:78%"></div></div></div>
+                    <div class="skill"><div class="skill-top"><span>Algorithms</span><span>Strong</span></div><div class="skill-bar"><div class="skill-fill" style="--target-width:85%"></div></div></div>
                 </div>
             </div>
         </div>
