@@ -198,7 +198,7 @@ Alongside AI/ML development, I regularly practice **Data Structures and Algorith
 - Dynamic Programming
 - Algorithms
 
-🔗 **LeetCode:** https://leetcode.com/
+🔗 **LeetCode:** https://leetcode.com/u/randhir_23/
 
 ---
 
@@ -236,11 +236,11 @@ I'm open to:
 
 ### LinkedIn
 
-💼 Connect with me on LinkedIn
+💼 https://www.linkedin.com/in/randhir--kumar/
 
 ### Hugging Face
 
-🤗 https://huggingface.co/
+🤗 https://huggingface.co/randhir20
 
 ### Email
 
